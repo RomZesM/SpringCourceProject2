@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>People list</title>
+	<meta charset="UTF-8">
+	<title>People list</title>
 </head>
 <body>
 <!--just simple text (names of persons)-->
 <big><div th:each="person : ${people}">
-    <a th:text="${person.getName()}">user</a>
+	<a th:text="${person.getName()}">user</a>
 </div> </big>
 <br/>
 <hr/>
 <!--href for every person (names of persons), and html generate depending on id of person-->
 
 <big><div th:each="person : ${people}">
-        <a th:href="@{{id}(id=${person.getId()})}"
-         th:text="${person.getName()
-           + ', ' + person.getAge() + ', ' + person.getEmail()}">user</a>
+	<a th:href="@{{id}(id=${person.getPersonid()})}"
+	   th:text="${person.getName()
+           + ', ' + person.getDateOfBirth}">user</a>
 </div>
 
-    <br/>
-    <hr/>
-    <a href="new">Create new person</a>
+	<br/>
+	<hr/>
+	<a href="new">Create new person</a>
 </big>>
 
 </body>

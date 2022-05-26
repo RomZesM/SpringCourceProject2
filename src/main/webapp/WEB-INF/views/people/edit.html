@@ -5,9 +5,9 @@
 	<title>Edit object</title>
 </head>
 <body>
-<!--html5 dousent know PATCH request, so thymeleaf will sent POST request with-->
+<!--html5 doesn't know PATCH request, so thymeleaf will sent POST request with-->
 <!--hidden field, where PATCH, DELETE and other requests could be-->
-<form th:method="PATCH" th:action="@{/people/{id}(id=${person.getId()})}" th:object="${person}">
+<form th:method="PATCH" th:action="@{/people/{id}(id=${person.getPersonid()})}" th:object="${person}">
 
 	<!--label for field-->
 	<label for="name">Enter your name</label>
@@ -15,19 +15,10 @@
 	<input type="text" th:field=*{name} id="name">
 
 	<div style="color:orange" th:if="${#fields.hasErrors('name')}" th:errors="*{name}" >name error</div>
-
-
 	<br/>
-	<label for="age">Enter your age</label>
-	<input type="text" th:field=*{age} id="age">
-	<div style="color:orange" th:if="${#fields.hasErrors('age')}" th:errors="*{age}" >age error</div>
+	<label for="age">Enter your date of birth</label>
+	<input type="text" th:field=*{dateOfBirth} id="age">
 	<br/>
-	<label for="email">Email:</label>
-	<input type="text" th:field=*{email} id="email">
-	<div style="color:orange" th:if="${#fields.hasErrors('email')}" th:errors="*{email}" >email error</div>
-
-	<br/>
-	<hr/>
 	<input type="submit" value="Update person!">
 
 </form>

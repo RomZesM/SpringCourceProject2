@@ -28,7 +28,8 @@ public class PersonValidator implements Validator {
 	public void validate(Object target, Errors errors) {
 	Person person = (Person) target;
 	//check DB if there is person with that email
-	if(personDAO.show(person.getEmail()) != null)
-		errors.rejectValue("email", "", "This email is not uniq");
+	
+//	if(personDAO.show(person.getName()) != null)
+//		errors.rejectValue("email", "", "This email is not uniq");
 	}
 }
