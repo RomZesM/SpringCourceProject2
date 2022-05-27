@@ -1,6 +1,7 @@
 package myCRUDappRMZ.model;
 
 public class Book {
+	private int bookid;
 	private String title;
 	private String author;
 	private int year;
@@ -8,14 +9,15 @@ public class Book {
 	public Book(){
 	
 	}
-	public Book(String title, String author, int year){
+	public Book(String title, String author, int year, int bookid){
 		this.author = author;
 		this.title = title;
 		this.year = year;
+		this.bookid = bookid;
 	}
 	
 	public String getTitle() {
-		return title;
+		return this.title;
 	}
 	
 	public void setTitle(String title) {
@@ -36,5 +38,13 @@ public class Book {
 	
 	public void setYear(int year) {
 		this.year = year;
+	}
+	
+	public void setBookid(int bookid){
+		this.bookid = bookid;
+	}
+	
+	public int getBookid(){
+		return bookid;
 	}
 }
