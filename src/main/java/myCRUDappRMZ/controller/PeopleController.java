@@ -37,7 +37,7 @@ public class PeopleController {
 	}
 	@GetMapping("/{id}")
 	public String show(@PathVariable("id") int id, Model model){
-		//DAO return one person with ID(it sent in HTTP request) and sent it to the webView
+		//DAO return one person with ID(it was sent in HTTP request) and send it to the webView
 		//in 'model object'
 		model.addAttribute("person", personDAO.show(id));
 		return "/people/id";

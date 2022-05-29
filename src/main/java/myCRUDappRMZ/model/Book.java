@@ -47,4 +47,14 @@ public class Book {
 	public int getBookid(){
 		return bookid;
 	}
+	
+	@Override
+	public String toString() {
+		return "Book{" +
+				"bookid=" + bookid +
+				", title='" + title + '\'' +
+				", author='" + author + '\'' +
+				", year=" + year +
+				'}';
+	}
 }

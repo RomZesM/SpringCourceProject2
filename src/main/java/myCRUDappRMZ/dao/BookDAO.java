@@ -21,4 +21,26 @@ public class BookDAO {
 		
 		return jdbcTemplate.query("SELECT * FROM Book", new BookMapper());
 	}
+	
+	public void add(Book book){
+		
+		jdbcTemplate.update("INSERT INTO Book (title, author, year) VALUES (?, ?, ?)",
+				book.getTitle(),
+				book.getAuthor(),
+				book.getYear());
+	}
+	
+	public Book show(int bookid){
+		return jdbcTemplate.query("SELECT * FROM Book WHERE bookid=?", new BookMapper(), bookid).
+				stream().findAny().orElse(null);
+		
+	}
+	
+	public void update(int id, Book book){
+		jdbcTemplate.update("UPDATE Book SET title=?, author=?, year=? WHERE bookid=?",
+				book.getTitle(),
+				book.getAuthor(),
+				book.getYear(),
+				id);
+	}
 }
