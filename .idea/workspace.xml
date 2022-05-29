@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9215dda-96b1-43f2-b52e-2cc49ab4c44d" name="Changes" comment="books - + setOwnerId in the Dbase">
+    <list default="true" id="d9215dda-96b1-43f2-b52e-2cc49ab4c44d" name="Changes" comment="books - free book">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/controller/BookController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/id.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/id.html" afterDir="false" />
@@ -191,7 +191,7 @@
       <workItem from="1653568965398" duration="69000" />
       <workItem from="1653569067328" duration="9578000" />
       <workItem from="1653585933984" duration="3318000" />
-      <workItem from="1653641810758" duration="30158000" />
+      <workItem from="1653641810758" duration="33921000" />
     </task>
     <task id="LOCAL-00001" summary="firstcommit, using old project as carcass">
       <created>1653569192743</created>
@@ -235,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653841382156</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="books - free book">
+      <created>1653843122567</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1653843122567</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,6 +266,7 @@
     <MESSAGE value="books - edit" />
     <MESSAGE value="books - + delete book" />
     <MESSAGE value="books - + setOwnerId in the Dbase" />
-    <option name="LAST_COMMIT_MESSAGE" value="books - + setOwnerId in the Dbase" />
+    <MESSAGE value="books - free book" />
+    <option name="LAST_COMMIT_MESSAGE" value="books - free book" />
   </component>
 </project>

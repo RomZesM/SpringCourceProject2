@@ -47,6 +47,8 @@ public class BookController {
 	}
 	@GetMapping("/{bookid}")//{} -> mean that it could be any id
 	public String show(@PathVariable int bookid, Model model, @ModelAttribute("personX") Person person){
+		if(bookDAO.show(bookid).getPersonOwnerId() > 0)
+			model.addAttribute("owner", personDAO.show(bookDAO.show(bookid).getPersonOwnerId()));
 		model.addAttribute("book", bookDAO.show(bookid));
 		model.addAttribute("personList", personDAO.index());//put all person in the model for drop-down menu
 	//	model.addAttribute("person", new Person());//put an empty object fot list view in form
@@ -71,7 +73,7 @@ public class BookController {
 		return "redirect:index";
 		
 	}
-	//borrow boot to person
+	//borrow book to person
 	@PatchMapping("/addToPerson/{bookid}")
 	public String addBookToPerson(@ModelAttribute("personX") Person person,
 	                              Model model, @PathVariable("bookid") int bookid){
@@ -80,7 +82,7 @@ public class BookController {
 		bookDAO.setOwner(bookid, person.getPersonid());
 		
 		//return "redirect:/books/index";
-		return "redirect:index";
+		return "redirect:/books/index";
 	}
 	
 	@PatchMapping("/freeFromPerson/{bookid}")
