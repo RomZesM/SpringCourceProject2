@@ -2,6 +2,7 @@ package myCRUDappRMZ.model;
 
 public class Book {
 	private int bookid;
+	private int personOwnerId;
 	private String title;
 	private String author;
 	private int year;
@@ -9,6 +10,9 @@ public class Book {
 	public Book(){
 	
 	}
+	
+	
+	
 	public Book(String title, String author, int year, int bookid){
 		this.author = author;
 		this.title = title;
@@ -48,6 +52,14 @@ public class Book {
 		return bookid;
 	}
 	
+	public int getPersonOwnerId() {
+		return personOwnerId;
+	}
+	
+	public void setPersonOwnerId(int personOwnerId) {
+		this.personOwnerId = personOwnerId;
+	}
+	
 	@Override
 	public String toString() {
 		return "Book{" +
@@ -55,6 +67,7 @@ public class Book {
 				", title='" + title + '\'' +
 				", author='" + author + '\'' +
 				", year=" + year +
+				"peronOwner" + personOwnerId +
 				'}';
 	}
 }

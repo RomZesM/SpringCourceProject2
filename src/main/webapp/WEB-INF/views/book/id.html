@@ -11,6 +11,17 @@
 	book.getBookid()}">
 	</b>
 	<br/>
+	<!--form for choosing user for book-->
+	<form th:method="PATCH" th:action="@{/books/addToPerson/{bookid}(bookid=${book.getBookid()})}">
+		<label for="personList">Choose a person</label>
+		<select th:object="${personX}" th:field=*{personid} id="personList">
+			<option th:each="person : ${personList}" th:value="${person.getPersonid()}"
+			th:text="${person.getName()}"
+			></option>
+		</select>
+		<input type="submit" value="Borrow book">
+	</form>
+	<hr/>
 	<a th:href="@{/books/{bookid}/edit(bookid=${book.getBookid()})}">Edit book</a>
 	<br/>
 	<form th:method="DELETE" th:action="@{/books/{bookid}(bookid=${book.getBookid()})}">

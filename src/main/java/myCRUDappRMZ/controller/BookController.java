@@ -1,20 +1,27 @@
 package myCRUDappRMZ.controller;
 
 import myCRUDappRMZ.dao.BookDAO;
+import myCRUDappRMZ.dao.PersonDAO;
 import myCRUDappRMZ.model.Book;
+import myCRUDappRMZ.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.sound.midi.Soundbank;
+
 @Controller
 @RequestMapping("/books")
 public class BookController {
 	private BookDAO bookDAO;
+	private PersonDAO personDAO;
 	
 	@Autowired
-	public BookController(BookDAO bookDAO){
+	public BookController(BookDAO bookDAO, PersonDAO personDAO){
 		this.bookDAO = bookDAO;
+		this.personDAO = personDAO;
+		
 	}
 	
 	@GetMapping("/index")
@@ -39,8 +46,10 @@ public class BookController {
 		
 	}
 	@GetMapping("/{bookid}")//{} -> mean that it could be any id
-	public String show(@PathVariable int bookid, Model model){
+	public String show(@PathVariable int bookid, Model model, @ModelAttribute("personX") Person person){
 		model.addAttribute("book", bookDAO.show(bookid));
+		model.addAttribute("personList", personDAO.index());//put all person in the model for drop-down menu
+	//	model.addAttribute("person", new Person());//put an empty object fot list view in form
 		return "/book/id";
 	}
 	
@@ -60,6 +69,18 @@ public class BookController {
 	public String delete(@PathVariable int bookid){
 		bookDAO.delete(bookid);
 		return "redirect:index";
+		
+	}
+	//borrow boot to person
+	@PatchMapping("/addToPerson/{bookid}")
+	public String addBookToPerson(@ModelAttribute("personX") Person person,
+	                              Model model, @PathVariable("bookid") int bookid){
+		System.out.println(person);
+		System.out.println(bookid);
+		bookDAO.setOwner(bookid, person.getPersonid());
+		
+		//return "redirect:/books/index";
+		return "/book/id";
 	}
 	
 }

@@ -14,8 +14,8 @@ public class Person {
 	
 	public Person(){
 	}
-	public Person(int personId, String name, int dateOfBirth) {
-		this.personid = personId;
+	public Person(int personid, String name, int dateOfBirth) {
+		this.personid = personid;
 		this.name = name;
 		this.dateOfBirth = dateOfBirth;
 	}
@@ -24,7 +24,7 @@ public class Person {
 		return personid;
 	}
 	
-	public void setId(int id) {
+	public void setPersonid(int id) {
 		this.personid = id;
 	}
 	
@@ -46,6 +46,6 @@ public class Person {
 	
 	@Override
 	public String toString() {
-		return getName() + " " + getDateOfBirth() + " " + getPersonid();
+		return "Person: " + getName() + " " + getDateOfBirth() + " " + getPersonid();
 	}
 }
