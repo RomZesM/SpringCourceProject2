@@ -56,4 +56,10 @@ public class BookController {
 		return "redirect:index";
 	}
 	
+	@DeleteMapping("/{bookid}")
+	public String delete(@PathVariable int bookid){
+		bookDAO.delete(bookid);
+		return "redirect:index";
+	}
+	
 }
