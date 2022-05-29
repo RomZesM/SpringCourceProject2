@@ -80,7 +80,15 @@ public class BookController {
 		bookDAO.setOwner(bookid, person.getPersonid());
 		
 		//return "redirect:/books/index";
-		return "/book/id";
+		return "redirect:index";
+	}
+	
+	@PatchMapping("/freeFromPerson/{bookid}")
+	public String freeBookFromPerson(@ModelAttribute ("personX") Person person,
+	                                   @PathVariable("bookid") int bookid)
+	{
+		bookDAO.freeBook(bookid);
+		return "redirect:/books/index";
 	}
 	
 }
