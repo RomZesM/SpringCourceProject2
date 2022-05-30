@@ -9,20 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9215dda-96b1-43f2-b52e-2cc49ab4c44d" name="Changes" comment="books - fix edit button.">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="d9215dda-96b1-43f2-b52e-2cc49ab4c44d" name="Changes" comment="books - simple validation with @valid">
+      <change afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/utils/BookValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/controller/BookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/controller/PeopleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/controller/PeopleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/dao/PersonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/dao/PersonDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/model/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/model/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/id.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/id.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/new.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/id.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/id.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/dao/BookDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/dao/BookDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/p_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/p_index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -202,7 +192,7 @@
       <workItem from="1653568965398" duration="69000" />
       <workItem from="1653569067328" duration="9578000" />
       <workItem from="1653585933984" duration="3318000" />
-      <workItem from="1653641810758" duration="45815000" />
+      <workItem from="1653641810758" duration="47105000" />
     </task>
     <task id="LOCAL-00001" summary="firstcommit, using old project as carcass">
       <created>1653569192743</created>
@@ -260,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653847622766</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="books - simple validation with @valid">
+      <created>1653902852997</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1653902852997</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,6 +285,7 @@
     <MESSAGE value="books - show who have the book" />
     <MESSAGE value="books - booklist in thr person page" />
     <MESSAGE value="books - fix edit button." />
-    <option name="LAST_COMMIT_MESSAGE" value="books - fix edit button." />
+    <MESSAGE value="books - simple validation with @valid" />
+    <option name="LAST_COMMIT_MESSAGE" value="books - simple validation with @valid" />
   </component>
 </project>

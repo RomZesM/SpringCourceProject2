@@ -4,6 +4,7 @@ import myCRUDappRMZ.dao.BookDAO;
 import myCRUDappRMZ.dao.PersonDAO;
 import myCRUDappRMZ.model.Book;
 import myCRUDappRMZ.model.Person;
+import myCRUDappRMZ.utils.BookValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,11 +19,13 @@ import javax.validation.Valid;
 public class BookController {
 	private BookDAO bookDAO;
 	private PersonDAO personDAO;
+	private BookValidator bookValidator;
 	
 	@Autowired
-	public BookController(BookDAO bookDAO, PersonDAO personDAO){
+	public BookController(BookDAO bookDAO, PersonDAO personDAO, BookValidator bookValidator){
 		this.bookDAO = bookDAO;
 		this.personDAO = personDAO;
+		this.bookValidator = bookValidator;
 		
 	}
 	
@@ -43,6 +46,7 @@ public class BookController {
 	
 	@PostMapping
 	public String createNewBook(@ModelAttribute("book") @Valid Book book, BindingResult bindingResult){
+		bookValidator.validate(book, bindingResult);
 		if(bindingResult.hasErrors())
 			return "book/new";
 		bookDAO.add(book);
@@ -69,6 +73,7 @@ public class BookController {
 	public String update(@PathVariable int bookid, @ModelAttribute("book") @Valid Book book,
 						BindingResult bindingResult){
 		//check if we have errors in binding result
+		bookValidator.validate(book, bindingResult);
 		if(bindingResult.hasErrors())
 			return "/book/edit"; //return page with error message
 		bookDAO.update(bookid, book);

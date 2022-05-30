@@ -35,6 +35,10 @@ public class BookDAO {
 				stream().findAny().orElse(null);
 		
 	}
+	public Book show(String title){
+		return jdbcTemplate.query("SELECT * FROM Book WHERE title=?", new BookMapper(), title).
+				stream().findAny().orElse(null);
+	}
 	
 	public void update(int id, Book book){
 		jdbcTemplate.update("UPDATE Book SET title=?, author=?, year=? WHERE bookid=?",
