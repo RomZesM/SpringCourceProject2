@@ -6,13 +6,14 @@
 </head>
 <body>
 <!--just simple text (names of persons)-->
-<big><div th:each="person : ${people}">
+<!---<big><div th:each="person : ${people}">
 	<a th:text="${person.getName()}">user</a>
 </div> </big>
 <br/>
-<hr/>
+<hr/>--->
 <!--href for every person (names of persons), and html generate depending on id of person-->
-
+<big><div th:text="'Persons list: '"/></big>
+<hr/>
 <big><div th:each="person : ${people}">
 	<a th:href="@{{id}(id=${person.getPersonid()})}"
 	   th:text="${person.getName()

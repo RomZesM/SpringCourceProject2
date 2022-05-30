@@ -6,15 +6,25 @@
 </head>
 <body>
 
-<p th:text="${person.getName()}">VALUE</p>
-<p th:text="${person.getDateOfBirth()}">VALUE</p>
-<p th:text="${person.getPersonid()}">VALUE</p>
+<b th:text="${person.getName() + ', ' + person.getDateOfBirth() + ', ID: ' + person.getPersonid()}">VALUE</b>
 
-<!--id we get from model-->
-<a th:href="@{/people/{id}/edit(id=${person.getPersonid()})}">Edit</a>
-
+<!--If person have a book form-->
+<hr/>
+<span th:if="${#lists.size(personBooks) == 0}">
+    <span th:text="'Person has no books.'"></span>
+</span>
+<span th:if="${#lists.size(personBooks) > 0}">
+    <span th:text="'Books:'"></span>
+    <div th:each="book : ${personBooks}" >
+        <span th:text="${book.title + ', ' + book.author + ', ' + book.year}">book</span>
+    </div>
+</span>
+<hr/>
+<!--edit button, id we get from model-->
+<form th:method="GET" th:action="@{/people/{id}/edit(id=${person.getPersonid()})}">
+    <input type="submit" value="Edit person">
+</form>
 <!--DELETE request could be sent only from FORM-->
-</br>
 <form th:method="DELETE" th:action="@{/people/{id}(id=${person.getPersonid()})}">
     <input type="submit" value="Delete!">
 </form>

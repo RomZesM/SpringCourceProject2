@@ -18,6 +18,7 @@
 	<br/>
 	<label for="age">Enter your date of birth</label>
 	<input type="text" th:field=*{dateOfBirth} id="age">
+	<div style="color:orange" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}" >age error</div>
 	<br/>
 	<input type="submit" value="Update person!">
 

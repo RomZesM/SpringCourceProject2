@@ -9,12 +9,15 @@
 
 	<label for="titleEdit">Title</label>
 	<input type="text" th:field=*{title} id="titleEdit">
+	<div style="color:red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">title errors</div>
 	<br/>
-	<label for="titleEdit">Author</label>
+	<label for="authorEdit">Author</label>
 	<input type="text" th:field=*{author} id="authorEdit" >
+	<div style="color:rebeccapurple" th:if=${#fields.hasErrors('author')} th:errors="*{author}">author errors</div>
 	<br/>
 	<label for="yearEdit">Year</label>
 	<input type="text" th:field=*{year} id="yearEdit">
+	<div style="color: chocolate" th:if=${#fields.hasErrors('year')} th:errors="*{year}">year errors</div>
 	<br/>
 	<input type="submit" value="Update book">
 </form>

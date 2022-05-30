@@ -7,9 +7,11 @@ import myCRUDappRMZ.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.sound.midi.Soundbank;
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/books")
@@ -40,12 +42,14 @@ public class BookController {
 	}
 	
 	@PostMapping
-	public String createNewBook(@ModelAttribute("book") Book book){
+	public String createNewBook(@ModelAttribute("book") @Valid Book book, BindingResult bindingResult){
+		if(bindingResult.hasErrors())
+			return "book/new";
 		bookDAO.add(book);
 		return "redirect:books/index";
 		
 	}
-	@GetMapping("/{bookid}")//{} -> mean that it could be any id
+	@GetMapping("/{bookid}")//{} -> mean that it could be any id and we get it with @PathVariable
 	public String show(@PathVariable int bookid, Model model, @ModelAttribute("personX") Person person){
 		if(bookDAO.show(bookid).getPersonOwnerId() > 0)
 			model.addAttribute("owner", personDAO.show(bookDAO.show(bookid).getPersonOwnerId()));
@@ -62,7 +66,11 @@ public class BookController {
 		return "/book/edit";
 	}
 	@PatchMapping("/{bookid}")
-	public String update(@PathVariable int bookid, @ModelAttribute("book") Book book){
+	public String update(@PathVariable int bookid, @ModelAttribute("book") @Valid Book book,
+						BindingResult bindingResult){
+		//check if we have errors in binding result
+		if(bindingResult.hasErrors())
+			return "/book/edit"; //return page with error message
 		bookDAO.update(bookid, book);
 		return "redirect:index";
 	}

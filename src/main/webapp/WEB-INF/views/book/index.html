@@ -5,11 +5,15 @@
 	<title>Books list</title>
 </head>
 <body>
+<big><div th:text="'Books list: '"/></big>
+<hr/>
 <div th:each="book : ${books}">
 	<a th:href="@{/books/{id}(id=*{book.getBookid})}"
 			th:text="${book.getTitle() + ', ' + book.getAuthor() + ', ' + book.getYear()}">Book info</a>
 </div>
-	<br/>
+
+<br/>
+<hr/>
 	<a href="new">Create new book</a>
 
 

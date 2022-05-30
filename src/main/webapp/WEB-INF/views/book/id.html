@@ -5,7 +5,6 @@
 	<title>Book</title>
 </head>
 <body>
-
 <b th:text="${book.getTitle()+ ', ' +
     book.getAuthor() + ', ' + book.getYear() + ', ' + 'bookId: ' +
 	book.getBookid()}">
@@ -33,9 +32,10 @@
 	</form>
 	</span>
 	<hr/>
-	<!--edit book link-->
-	<a th:href="@{/books/{bookid}/edit(bookid=${book.getBookid()})}">Edit book</a>
-	<br/>
+	<!--edit book button-->
+	<form th:method="GET" th:action="@{/books/{bookid}/edit(bookid=${book.getBookid()})}">
+		<input type="submit" value="Edit book">
+	</form>
 	<!--delete book butoon-->
 	<form th:method="DELETE" th:action="@{/books/{bookid}(bookid=${book.getBookid()})}">
 		<input type="submit" value="Delete">

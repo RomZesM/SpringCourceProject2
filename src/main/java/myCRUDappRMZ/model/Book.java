@@ -1,10 +1,18 @@
 package myCRUDappRMZ.model;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+
 public class Book {
 	private int bookid;
+	
 	private int personOwnerId;
+	@NotBlank(message = "Every book has a title.")
 	private String title;
+	@NotBlank(message = "You need to enter the author of the book")
 	private String author;
+	@Min(value=1900, message="Need to be between 1900 and 2022")
 	private int year;
 	
 	public Book(){

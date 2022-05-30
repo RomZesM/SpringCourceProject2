@@ -1,5 +1,6 @@
 package myCRUDappRMZ.dao;
 
+import myCRUDappRMZ.model.Book;
 import myCRUDappRMZ.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
@@ -31,6 +32,18 @@ public class PersonDAO {
 		List<Person> lll = jdbcTemplate.query("SELECT * FROM Person", new PersonMapper());
 		
 		return lll;
+	}
+	
+	//return books from JOIN tables for one person
+	public List<Book> personBooks(int id){
+	List<Book> booksP = jdbcTemplate.query("SELECT book.title, book.author, book.year, book.bookid, book.personid" +
+			" FROM Person JOIN Book ON Person.personid = book.personid " +
+			"WHERE person.personid=?", new BookMapper(), id);
+		
+		System.out.println(booksP.size());
+		System.out.println(booksP);
+		
+		return booksP;
 	}
 	
 	//method to show 1 person with certain index (return Person.Object)\
@@ -66,5 +79,7 @@ public class PersonDAO {
 		jdbcTemplate.update("DELETE FROM Person WHERE personid=?", id);
 		
 	}
+	
+	
 	
 }

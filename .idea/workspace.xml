@@ -9,10 +9,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9215dda-96b1-43f2-b52e-2cc49ab4c44d" name="Changes" comment="books - free book">
+    <list default="true" id="d9215dda-96b1-43f2-b52e-2cc49ab4c44d" name="Changes" comment="books - fix edit button.">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/controller/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/controller/PeopleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/controller/PeopleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/dao/PersonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/dao/PersonDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/model/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/model/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/edit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/id.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/id.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/new.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/id.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/id.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/p_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/p_index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +202,7 @@
       <workItem from="1653568965398" duration="69000" />
       <workItem from="1653569067328" duration="9578000" />
       <workItem from="1653585933984" duration="3318000" />
-      <workItem from="1653641810758" duration="33921000" />
+      <workItem from="1653641810758" duration="45815000" />
     </task>
     <task id="LOCAL-00001" summary="firstcommit, using old project as carcass">
       <created>1653569192743</created>
@@ -242,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653843122567</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="books - show who have the book">
+      <created>1653847622766</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1653847622766</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,6 +285,9 @@
     <MESSAGE value="books - + delete book" />
     <MESSAGE value="books - + setOwnerId in the Dbase" />
     <MESSAGE value="books - free book" />
-    <option name="LAST_COMMIT_MESSAGE" value="books - free book" />
+    <MESSAGE value="books - show who have the book" />
+    <MESSAGE value="books - booklist in thr person page" />
+    <MESSAGE value="books - fix edit button." />
+    <option name="LAST_COMMIT_MESSAGE" value="books - fix edit button." />
   </component>
 </project>

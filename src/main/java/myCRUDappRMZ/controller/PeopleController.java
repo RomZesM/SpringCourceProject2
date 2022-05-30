@@ -39,6 +39,7 @@ public class PeopleController {
 	public String show(@PathVariable("id") int id, Model model){
 		//DAO return one person with ID(it was sent in HTTP request) and send it to the webView
 		//in 'model object'
+		model.addAttribute("personBooks", personDAO.personBooks(id));
 		model.addAttribute("person", personDAO.show(id));
 		return "/people/id";
 	}
