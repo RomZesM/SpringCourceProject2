@@ -2,18 +2,23 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="alCourseProject1:war exploded" />
+      <artifact name="alCourseProject2:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9215dda-96b1-43f2-b52e-2cc49ab4c44d" name="Changes" comment="books - simple validation with @valid">
-      <change afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/utils/BookValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/controller/BookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/dao/BookDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/dao/BookDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/p_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/p_index.html" afterDir="false" />
+    <list default="true" id="d9215dda-96b1-43f2-b52e-2cc49ab4c44d" name="Changes" comment="books - validate tittle with validator class">
+      <change afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/repositories/BookInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/repositories/PersonRepositories.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/servicies/BookServicies.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/servicies/PersonServicies.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/dao/PersonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/dao/PersonDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +29,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -51,27 +57,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/romzes/Dropbox/!Java/alCourseProject1&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;03958f9b1ed2b8a2998c8acceb213771&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/romzes/Dropbox/!Java/Alishev_cource_my/projects/alCourseProject2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "spring.configuration.checksum": "03958f9b1ed2b8a2998c8acceb213771"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/batch" />
@@ -85,14 +92,14 @@
     <configuration name="Tomcat 9.0.62" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.62" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
-        <artifact name="alCourseProject1:war exploded">
+        <artifact name="alCourseProject2:war exploded">
           <settings>
             <option name="CONTEXT_PATH" value="" />
           </settings>
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="a0d63214-ab13-424b-8a18-a6ead46c58a9" />
+        <option name="BASE_DIRECTORY_NAME" value="56eb5414-7e3b-4040-9054-4cd191cf1f8f" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -100,7 +107,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="62681" />
+        <option name="DEBUG_PORT" value="60227" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -165,8 +172,20 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="alCourseProject1:war exploded" />
+          <artifact name="alCourseProject2:war exploded" />
         </option>
+      </method>
+    </configuration>
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
+      <deployment />
+      <server-settings />
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <method v="2">
+        <option name="Make" enabled="true" />
       </method>
     </configuration>
   </component>
@@ -192,7 +211,11 @@
       <workItem from="1653568965398" duration="69000" />
       <workItem from="1653569067328" duration="9578000" />
       <workItem from="1653585933984" duration="3318000" />
-      <workItem from="1653641810758" duration="47105000" />
+      <workItem from="1653641810758" duration="51587000" />
+      <workItem from="1654098247826" duration="1626000" />
+      <workItem from="1654868108890" duration="38000" />
+      <workItem from="1655103538556" duration="1822000" />
+      <workItem from="1655376694208" duration="2755000" />
     </task>
     <task id="LOCAL-00001" summary="firstcommit, using old project as carcass">
       <created>1653569192743</created>
@@ -257,7 +280,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653902852997</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="books - validate tittle with validator class">
+      <created>1653904365022</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1653904365022</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,6 +316,7 @@
     <MESSAGE value="books - booklist in thr person page" />
     <MESSAGE value="books - fix edit button." />
     <MESSAGE value="books - simple validation with @valid" />
-    <option name="LAST_COMMIT_MESSAGE" value="books - simple validation with @valid" />
+    <MESSAGE value="books - validate tittle with validator class" />
+    <option name="LAST_COMMIT_MESSAGE" value="books - validate tittle with validator class" />
   </component>
 </project>
