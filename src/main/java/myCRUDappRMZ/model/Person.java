@@ -1,16 +1,29 @@
 package myCRUDappRMZ.model;
 
+import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.util.List;
 
+@Entity
+@Table(name = "Person")
 public class Person {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "personid")
 	private int personid;
+	
+	@Column(name = "name")
 	@NotEmpty(message = "Name couldn't be empty.")
 	@Size(min = 1, max = 50, message = "Name size between 1-50 symbols.")
 	private String name;
+	
+	@Column(name = "dateofbirth")
 	@Min(value = 1930, message = "No books for old man!")
 	@Max(value = 2004, message = "You need to be older than 18")
 	private int dateOfBirth;
 	
+	@OneToMany(mappedBy = "owner")
+	private List<Book> boosList;
 	
 	public Person(){
 	}
@@ -42,6 +55,14 @@ public class Person {
 	
 	public void setDateOfBirth(int dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
+	}
+	
+	public List<Book> getBoosList() {
+		return boosList;
+	}
+	
+	public void setBoosList(List<Book> boosList) {
+		this.boosList = boosList;
 	}
 	
 	@Override

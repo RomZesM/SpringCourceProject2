@@ -4,6 +4,9 @@ import myCRUDappRMZ.dao.BookDAO;
 import myCRUDappRMZ.dao.PersonDAO;
 import myCRUDappRMZ.model.Book;
 import myCRUDappRMZ.model.Person;
+import myCRUDappRMZ.repositories.PersonRepositories;
+import myCRUDappRMZ.servicies.BookServicies;
+import myCRUDappRMZ.servicies.PersonServicies;
 import myCRUDappRMZ.utils.BookValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,22 +20,24 @@ import javax.validation.Valid;
 @Controller
 @RequestMapping("/books")
 public class BookController {
-	private BookDAO bookDAO;
-	private PersonDAO personDAO;
-	private BookValidator bookValidator;
+	
+	private final BookValidator bookValidator;
+	private final BookServicies bookServicies;
+	private final PersonServicies personServicies;
 	
 	@Autowired
-	public BookController(BookDAO bookDAO, PersonDAO personDAO, BookValidator bookValidator){
-		this.bookDAO = bookDAO;
-		this.personDAO = personDAO;
+	public BookController(PersonServicies personServicies,
+	                      BookServicies bookServicies,
+	                      BookValidator bookValidator){
+		this.personServicies = personServicies;
+		this.bookServicies =  bookServicies;
 		this.bookValidator = bookValidator;
-		
 	}
 	
 	@GetMapping("/index")
 	public String bookIndex(Model model){
 		//put booklist from bookDao into the model
-		model.addAttribute("books", bookDAO.index());
+		model.addAttribute("books", bookServicies.index());
 		return "/book/index";
 	}
 	
@@ -45,20 +50,21 @@ public class BookController {
 	}
 	
 	@PostMapping
-	public String createNewBook(@ModelAttribute("book") @Valid Book book, BindingResult bindingResult){
+	public String createNewBook(@ModelAttribute("book") @Valid Book book,
+	                            BindingResult bindingResult){
 		bookValidator.validate(book, bindingResult);
 		if(bindingResult.hasErrors())
 			return "book/new";
-		bookDAO.add(book);
+		bookServicies.save(book);
 		return "redirect:books/index";
 		
 	}
 	@GetMapping("/{bookid}")//{} -> mean that it could be any id and we get it with @PathVariable
 	public String show(@PathVariable int bookid, Model model, @ModelAttribute("personX") Person person){
-		if(bookDAO.show(bookid).getPersonOwnerId() > 0)
-			model.addAttribute("owner", personDAO.show(bookDAO.show(bookid).getPersonOwnerId()));
-		model.addAttribute("book", bookDAO.show(bookid));
-		model.addAttribute("personList", personDAO.index());//put all person in the model for drop-down menu
+		if(bookServicies.show(bookid).getOwner().getPersonid() > 0)
+			model.addAttribute("owner", personServicies.show(bookServicies.show(bookid).getOwner().getPersonid()));
+			model.addAttribute("book", bookServicies.show(bookid));
+			model.addAttribute("personList", personServicies.index());//put all person in the model for drop-down menu
 	//	model.addAttribute("person", new Person());//put an empty object fot list view in form
 		return "/book/id";
 	}
@@ -66,7 +72,7 @@ public class BookController {
 	@GetMapping("/{bookid}/edit")
 	public String edit(@PathVariable int bookid, Model model){
 		//put an object to fill empty form for editing
-		model.addAttribute("book", bookDAO.show(bookid));
+		model.addAttribute("book", bookServicies.show(bookid));
 		return "/book/edit";
 	}
 	@PatchMapping("/{bookid}")
@@ -76,13 +82,13 @@ public class BookController {
 		bookValidator.validate(book, bindingResult);
 		if(bindingResult.hasErrors())
 			return "/book/edit"; //return page with error message
-		bookDAO.update(bookid, book);
+		bookServicies.update(bookid, book);
 		return "redirect:index";
 	}
 	
 	@DeleteMapping("/{bookid}")
 	public String delete(@PathVariable int bookid){
-		bookDAO.delete(bookid);
+		bookServicies.delete(bookid);
 		return "redirect:index";
 		
 	}
@@ -92,7 +98,7 @@ public class BookController {
 	                              Model model, @PathVariable("bookid") int bookid){
 		System.out.println(person);
 		System.out.println(bookid);
-		bookDAO.setOwner(bookid, person.getPersonid());
+		bookServicies.setOwner(bookid, person.getPersonid());
 		
 		//return "redirect:/books/index";
 		return "redirect:/books/index";
@@ -102,7 +108,7 @@ public class BookController {
 	public String freeBookFromPerson(@ModelAttribute ("personX") Person person,
 	                                   @PathVariable("bookid") int bookid)
 	{
-		bookDAO.freeBook(bookid);
+		bookServicies.freeBook(bookid);
 		return "redirect:/books/index";
 	}
 	

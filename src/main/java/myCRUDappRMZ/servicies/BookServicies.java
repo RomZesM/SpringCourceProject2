@@ -1,7 +1,8 @@
 package myCRUDappRMZ.servicies;
 
 import myCRUDappRMZ.model.Book;
-import myCRUDappRMZ.repositories.BookInterface;
+import myCRUDappRMZ.model.Person;
+import myCRUDappRMZ.repositories.BookRepositories;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,35 +14,52 @@ import java.util.Optional;
 @Transactional(readOnly = true)
 public class BookServicies {
 	
-	BookInterface bookInterface; //instead of dao
+	BookRepositories bookRepositories; //instead of dao
+	PersonServicies personServicies;
 	
 	@Autowired
-	public BookServicies(BookInterface bookInterface){
-		this.bookInterface = bookInterface;
+	public BookServicies(BookRepositories bookRepositories,
+	                     PersonServicies personServicies){
+		this.bookRepositories = bookRepositories;
+		this.personServicies = personServicies;
 	}
 	//#1 Book Index
 	public List<Book> index(){
-		return bookInterface.findAll();
+		return bookRepositories.findAll();
 	}
 	
 	public Book show(int id){
-		Optional optional = bookInterface.findById(id);
+		Optional optional = bookRepositories.findById(id);
 		Book book = (Book) optional.orElse(null);
 		return book;
 	}
 	@Transactional
 	public void save(Book book){
-		bookInterface.save(book);
+		bookRepositories.save(book);
 	}
 	
 	@Transactional
 	public void update(int id, Book updatedBook){
 		updatedBook.setBookid(id); //thymeleaf return id separate of updated book
-		bookInterface.save(updatedBook);
+		bookRepositories.save(updatedBook);
 	}
 	
 	@Transactional
 	public void delete(int id){
-		bookInterface.deleteById(id);
+		bookRepositories.deleteById(id);
+	}
+	
+	@Transactional
+	public void setOwner(int bookid, int personOwnerId){
+		Book book = show(bookid);
+		Person pOwner = personServicies.show(personOwnerId);
+		book.setOwner(pOwner);
+		bookRepositories.save(book);
+	}
+	@Transactional
+	public void freeBook(int bookid){
+		Book book = show(bookid);
+		book.setOwner(null);
+		bookRepositories.save(book);
 	}
 }

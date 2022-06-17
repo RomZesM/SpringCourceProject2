@@ -1,5 +1,7 @@
 package myCRUDappRMZ.servicies;
 
+import myCRUDappRMZ.dao.BookMapper;
+import myCRUDappRMZ.model.Book;
 import myCRUDappRMZ.model.Person;
 import myCRUDappRMZ.repositories.PersonRepositories;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,4 +48,11 @@ public class PersonServicies {
 		personRepositories.deleteById(id);
 	}
 	
+	
+	public List<Book> personBooks(int id) {
+		
+		List<Book> allBooks = personRepositories.findAllByPersonid(id);
+		
+		return allBooks;
+	}
 }

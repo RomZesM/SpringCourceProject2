@@ -3,6 +3,7 @@ package myCRUDappRMZ.controller;
 
 import myCRUDappRMZ.dao.PersonDAO;
 import myCRUDappRMZ.model.Person;
+import myCRUDappRMZ.servicies.PersonServicies;
 import myCRUDappRMZ.utils.PersonValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -19,12 +20,11 @@ import javax.validation.Valid;
 public class PeopleController {
 	
 	
-	private final PersonDAO personDAO;
-	//spring inject here bean PersonDAO
+	private final PersonServicies personServicies;
 	private final PersonValidator personValidator;
 	@Autowired
-	public PeopleController(PersonDAO personDAO, PersonValidator personValidator) {
-		this.personDAO = personDAO;
+	public PeopleController(PersonServicies personServicies, PersonValidator personValidator) {
+		this.personServicies = personServicies;
 		this.personValidator = personValidator;
 	}
 	
@@ -32,15 +32,15 @@ public class PeopleController {
 	@GetMapping("/index")
 	public String index(Model model){
 		//DAO return all people from BD and sent it to the view (with ThymeLEAF)
-		model.addAttribute("people", personDAO.index());
+		model.addAttribute("people", personServicies.index());
 		return "/people/p_index";
 	}
 	@GetMapping("/{id}")
 	public String show(@PathVariable("id") int id, Model model){
 		//DAO return one person with ID(it was sent in HTTP request) and send it to the webView
 		//in 'model object'
-		model.addAttribute("personBooks", personDAO.personBooks(id));
-		model.addAttribute("person", personDAO.show(id));
+		model.addAttribute("personBooks", personServicies.personBooks(id)); //TODO
+		model.addAttribute("person", personServicies.show(id));
 		return "/people/id";
 	}
 	//method for creating new person
@@ -71,7 +71,7 @@ public class PeopleController {
 		
 		//ModelAttribute automatically fill new Peron fields with info from POST request
 		
-		personDAO.save(person);
+		personServicies.save(person);
 		//after adding information to database we can make redirect to something
 		//or open a page with information for user, about successfully creation
 		return("redirect:/people/index");
@@ -80,7 +80,7 @@ public class PeopleController {
 	@GetMapping("/{id}/edit")
 	public String edit(Model model, @PathVariable ("id") int id){
 		//put in model object we want to edit, because we need to see what we should edit
-		model.addAttribute("person", personDAO.show(id));
+		model.addAttribute("person", personServicies.show(id));
 		return ("people/edit");
 	}
 	
@@ -93,13 +93,13 @@ public class PeopleController {
 		if (bindingResult.hasErrors())
 			return("people/edit");
 		
-		personDAO.update(id, person);
+		personServicies.update(id, person);
 		return("redirect:/people/index");
 	}
 	//delete method, receive in request an id of person, we need to delete
 	@DeleteMapping("/{id}")
 	public String delete(@PathVariable ("id") int id){
-		personDAO.delete(id);
+		personServicies.delete(id);
 		return("redirect:/people/index");
 	}
 	

@@ -1,25 +1,32 @@
 package myCRUDappRMZ.model;
 
+import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
-
+@Entity
+@Table(name = "Book")
 public class Book {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "bookid")
 	private int bookid;
 	
-	private int personOwnerId;
+	@ManyToOne
+	@JoinColumn(name = "personid", referencedColumnName = "personid")
+	private Person owner;
+	@Column(name = "title")
 	@NotBlank(message = "Every book has a title.")
 	private String title;
+	@Column( name = "author")
 	@NotBlank(message = "You need to enter the author of the book")
 	private String author;
+	@Column(name = "year")
 	@Min(value=1900, message="Need to be between 1900 and 2022")
 	private int year;
 	
 	public Book(){
-	
 	}
-	
-	
 	
 	public Book(String title, String author, int year, int bookid){
 		this.author = author;
@@ -60,12 +67,12 @@ public class Book {
 		return bookid;
 	}
 	
-	public int getPersonOwnerId() {
-		return personOwnerId;
+	public Person getOwner() {
+		return owner;
 	}
 	
-	public void setPersonOwnerId(int personOwnerId) {
-		this.personOwnerId = personOwnerId;
+	public void setOwner(Person owner) {
+		this.owner = owner;
 	}
 	
 	@Override
@@ -75,7 +82,7 @@ public class Book {
 				", title='" + title + '\'' +
 				", author='" + author + '\'' +
 				", year=" + year +
-				"peronOwner" + personOwnerId +
+				"peronOwner" + owner +
 				'}';
 	}
 }
