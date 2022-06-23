@@ -10,7 +10,7 @@
 	<input type="text" th:field="*{title}" id="titleInput">
 	<div style="color:coral" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">title errors</div>
 	</br>
-	<label for="authorInput">Year</label>
+	<label for="authorInput">Author</label>
 	<input type="text" th:field="*{author}" id="authorInput">
 	<div style="color:brown" th:if="${#fields.hasErrors('author')}" th:errors="*{author}">author errors</div>
 	</br>

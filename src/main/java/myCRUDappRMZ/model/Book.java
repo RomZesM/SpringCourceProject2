@@ -1,5 +1,8 @@
 package myCRUDappRMZ.model;
 
+import jdk.jfr.Timestamp;
+import org.springframework.data.annotation.Reference;
+
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -24,6 +27,9 @@ public class Book {
 	@Column(name = "year")
 	@Min(value=1900, message="Need to be between 1900 and 2022")
 	private int year;
+	
+	@Column(name = "personid", insertable = false, updatable = false)
+	private Integer personid;
 	
 	public Book(){
 	}
@@ -73,6 +79,14 @@ public class Book {
 	
 	public void setOwner(Person owner) {
 		this.owner = owner;
+	}
+	
+	public Integer getPersonid() {
+		return personid;
+	}
+	
+	public void setPersonid(int personid) {
+		this.personid = personid;
 	}
 	
 	@Override

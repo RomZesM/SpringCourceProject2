@@ -1,7 +1,7 @@
 package myCRUDappRMZ.utils;
 
-import myCRUDappRMZ.dao.BookDAO;
 import myCRUDappRMZ.model.Book;
+import myCRUDappRMZ.servicies.BookServicies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -9,11 +9,11 @@ import org.springframework.validation.Validator;
 
 @Component
 public class BookValidator implements Validator {
-	BookDAO bookDAO;
+	BookServicies bookServicies;
 	
 	@Autowired
-	public BookValidator(BookDAO bookDAO){
-		this.bookDAO=bookDAO;
+	public BookValidator(BookServicies bookServicies){
+		this.bookServicies = bookServicies;
 	}
 	@Override
 	public boolean supports(Class<?> classOne) {
@@ -24,7 +24,7 @@ public class BookValidator implements Validator {
 	@Override
 	public void validate(Object target, Errors errors) {
 		Book book = (Book) target;
-		if(bookDAO.show(book.getTitle()) != null)
+		if(bookServicies.findByTitle(book.getTitle()) != null)
 			errors.rejectValue("title","", "This book is already in the library");
 	}
 }

@@ -12,7 +12,7 @@
 	<br/>
 	<hr/>
 	<!--form for choosing user for book-->
-	<span th:if="${book.getPersonOwnerId() == 0}">
+	<span th:if="${book.getOwner() == null}">
 		<span>This book is free. Who want to take it?</span>
 		<form th:method="PATCH" th:action="@{/books/addToPerson/{bookid}(bookid=${book.getBookid()})}">
 		<label for="personList">Choose a person</label>
@@ -25,7 +25,7 @@
 	</form>
 	</span>
 <!--button for freeing book-->
-	<span th:if="${book.getPersonOwnerId() > 0}">
+	<span th:if="${book.getOwner() != null}">
 		<span th:text="'The person, who get the book: ' + ${owner.getName()}"></span>
 		<form th:method="PATCH" th:action="@{/books/freeFromPerson/{bookid}(bookid=${book.getBookid()})}">
 		<input type="submit" value="Free book">

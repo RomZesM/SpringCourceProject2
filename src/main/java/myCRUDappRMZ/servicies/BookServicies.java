@@ -4,6 +4,7 @@ import myCRUDappRMZ.model.Book;
 import myCRUDappRMZ.model.Person;
 import myCRUDappRMZ.repositories.BookRepositories;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,7 +26,19 @@ public class BookServicies {
 	}
 	//#1 Book Index
 	public List<Book> index(){
+		
 		return bookRepositories.findAll();
+	}
+	
+	public List<Book> indexPage(int pageInt, int bookPPInt){
+		
+		return bookRepositories.findAll(PageRequest.of(pageInt, bookPPInt)).getContent();
+	}
+	
+	public List<Book> indexSortingYear(){
+		System.out.println("Inside index Sorting");
+		List<Book> sortList = bookRepositories.findAllByOrderByYearDesc();
+		return sortList;
 	}
 	
 	public Book show(int id){
@@ -41,6 +54,7 @@ public class BookServicies {
 	@Transactional
 	public void update(int id, Book updatedBook){
 		updatedBook.setBookid(id); //thymeleaf return id separate of updated book
+	//	bookRepositories.deleteById(id);
 		bookRepositories.save(updatedBook);
 	}
 	
@@ -62,4 +76,16 @@ public class BookServicies {
 		book.setOwner(null);
 		bookRepositories.save(book);
 	}
+	
+	public Book findByTitle(String title){
+		return bookRepositories.findByTitle(title);
+		
+	}
+	
+	public List<Book> searchStartingWith(String startingWith){
+		System.out.println("In BookServicies -> search");
+		List<Book> bookList = bookRepositories.findByTitleStartingWith(startingWith);
+		return(bookList);
+	}
+	
 }

@@ -1,7 +1,7 @@
 package myCRUDappRMZ.controller;
 
 
-import myCRUDappRMZ.dao.PersonDAO;
+import myCRUDappRMZ.model.Book;
 import myCRUDappRMZ.model.Person;
 import myCRUDappRMZ.servicies.PersonServicies;
 import myCRUDappRMZ.utils.PersonValidator;
@@ -13,6 +13,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @Controller
 //all url would start with people
@@ -33,12 +36,16 @@ public class PeopleController {
 	public String index(Model model){
 		//DAO return all people from BD and sent it to the view (with ThymeLEAF)
 		model.addAttribute("people", personServicies.index());
+		
 		return "/people/p_index";
 	}
 	@GetMapping("/{id}")
 	public String show(@PathVariable("id") int id, Model model){
 		//DAO return one person with ID(it was sent in HTTP request) and send it to the webView
 		//in 'model object'
+		System.out.println("Here");
+		List<Book> bookL = personServicies.personBooks(id);
+		System.out.println(bookL.size());
 		model.addAttribute("personBooks", personServicies.personBooks(id)); //TODO
 		model.addAttribute("person", personServicies.show(id));
 		return "/people/id";

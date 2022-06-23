@@ -1,7 +1,7 @@
 package myCRUDappRMZ.utils;
 
-import myCRUDappRMZ.dao.PersonDAO;
 import myCRUDappRMZ.model.Person;
+import myCRUDappRMZ.servicies.PersonServicies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -9,11 +9,11 @@ import org.springframework.validation.Validator;
 
 @Component
 public class PersonValidator implements Validator {
-	private final PersonDAO personDAO;
+	private final PersonServicies personServicies;
 	
 	@Autowired
-	public PersonValidator(PersonDAO personDAO){
-		this.personDAO = personDAO;
+	public PersonValidator(PersonServicies personServicies){
+		this.personServicies = personServicies;
 	}
 	
 	@Override

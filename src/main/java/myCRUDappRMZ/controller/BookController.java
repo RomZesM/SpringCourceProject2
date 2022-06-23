@@ -1,10 +1,7 @@
 package myCRUDappRMZ.controller;
 
-import myCRUDappRMZ.dao.BookDAO;
-import myCRUDappRMZ.dao.PersonDAO;
 import myCRUDappRMZ.model.Book;
 import myCRUDappRMZ.model.Person;
-import myCRUDappRMZ.repositories.PersonRepositories;
 import myCRUDappRMZ.servicies.BookServicies;
 import myCRUDappRMZ.servicies.PersonServicies;
 import myCRUDappRMZ.utils.BookValidator;
@@ -14,7 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.sound.midi.Soundbank;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @Controller
@@ -35,7 +32,29 @@ public class BookController {
 	}
 	
 	@GetMapping("/index")
-	public String bookIndex(Model model){
+	public String bookIndex(Model model, HttpServletRequest request){
+		int pageInt = 0;
+		int bookPPInt = 0;
+		String page = request.getParameter("page");
+		String bookPerPage = request.getParameter("books_per_page");
+		String sortByYear = request.getParameter("sort_by_year");
+		if(page != null && bookPerPage != null)//make a pagination if get needed parameters
+		{
+			pageInt = Integer.parseInt(page);
+			bookPPInt = Integer.parseInt(bookPerPage);
+			model.addAttribute("books", bookServicies.indexPage(pageInt, bookPPInt));
+			return "/book/index";
+		}
+		if(sortByYear != null && sortByYear.contentEquals("true"))//sorting by year
+		{
+			System.out.println(sortByYear);
+			model.addAttribute("books", bookServicies.indexSortingYear());
+			return "/book/index";
+		}
+		
+		
+//		int bookPerPage = Integer.parseInt(request.getParameter("books_per_page"));
+//		System.out.println(page + " : " + bookPerPage );
 		//put booklist from bookDao into the model
 		model.addAttribute("books", bookServicies.index());
 		return "/book/index";
@@ -61,7 +80,7 @@ public class BookController {
 	}
 	@GetMapping("/{bookid}")//{} -> mean that it could be any id and we get it with @PathVariable
 	public String show(@PathVariable int bookid, Model model, @ModelAttribute("personX") Person person){
-		if(bookServicies.show(bookid).getOwner().getPersonid() > 0)
+		if(bookServicies.show(bookid).getOwner() != null)
 			model.addAttribute("owner", personServicies.show(bookServicies.show(bookid).getOwner().getPersonid()));
 			model.addAttribute("book", bookServicies.show(bookid));
 			model.addAttribute("personList", personServicies.index());//put all person in the model for drop-down menu
@@ -79,12 +98,25 @@ public class BookController {
 	public String update(@PathVariable int bookid, @ModelAttribute("book") @Valid Book book,
 						BindingResult bindingResult){
 		//check if we have errors in binding result
-		bookValidator.validate(book, bindingResult);
+		//bookValidator.validate(book, bindingResult);
 		if(bindingResult.hasErrors())
 			return "/book/edit"; //return page with error message
 		bookServicies.update(bookid, book);
 		return "redirect:index";
 	}
+	
+	@GetMapping("/search")
+	public String search(@RequestParam(name="search", required = false) String searchLine, Model model){
+		
+		if(searchLine != null)
+		{
+			System.out.println("Search");
+			model.addAttribute("searchResult", bookServicies.searchStartingWith(searchLine));
+			return "book/search";
+		}
+		return "book/search";
+	}
+	
 	
 	@DeleteMapping("/{bookid}")
 	public String delete(@PathVariable int bookid){
