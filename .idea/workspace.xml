@@ -9,28 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9215dda-96b1-43f2-b52e-2cc49ab4c44d" name="Changes" comment="make 2 @Entity, manyToOne - OneToMAny">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/hibernate.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/config/SpringConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/config/SpringConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/controller/AdminController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/controller/BookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/controller/PeopleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/controller/PeopleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/dao/BookDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/dao/BookMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/dao/PersonDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/dao/PersonMapper.java" beforeDir="false" />
+    <list default="true" id="d9215dda-96b1-43f2-b52e-2cc49ab4c44d" name="Changes" comment="add: search(form and method)">
       <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/model/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/repositories/BookRepositories.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/repositories/BookRepositories.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/repositories/PersonRepositories.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/repositories/PersonRepositories.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/servicies/BookServicies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/servicies/BookServicies.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/servicies/PersonServicies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/servicies/PersonServicies.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/utils/BookValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/utils/BookValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/utils/PersonValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/utils/PersonValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/adminPage.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/id.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/id.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book/new.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,28 +49,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/romzes/Dropbox/!Java/Alishev_cource_my/projects/alCourseProject2",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "spring.configuration.checksum": "22f04c2fcd499d7e4f65ac5e62a51244"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/romzes/Dropbox/!Java/Alishev_cource_my/projects/alCourseProject2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;22f04c2fcd499d7e4f65ac5e62a51244&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/batch" />
@@ -217,6 +197,7 @@
       <workItem from="1655103538556" duration="1822000" />
       <workItem from="1655376694208" duration="30871000" />
       <workItem from="1655896130494" duration="1188000" />
+      <workItem from="1655965902965" duration="700000" />
     </task>
     <task id="LOCAL-00001" summary="firstcommit, using old project as carcass">
       <created>1653569192743</created>
@@ -302,7 +283,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655448589836</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="add: search(form and method)">
+      <created>1655966333784</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1655966333784</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -334,6 +322,8 @@
     <MESSAGE value="books - validate tittle with validator class" />
     <MESSAGE value="make 2 servicies classes" />
     <MESSAGE value="make 2 @Entity, manyToOne - OneToMAny" />
-    <option name="LAST_COMMIT_MESSAGE" value="make 2 @Entity, manyToOne - OneToMAny" />
+    <MESSAGE value="adddin search(form and method)" />
+    <MESSAGE value="add: search(form and method)" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: search(form and method)" />
   </component>
 </project>

@@ -8,6 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -68,12 +69,14 @@ public class BookServicies {
 		Book book = show(bookid);
 		Person pOwner = personServicies.show(personOwnerId);
 		book.setOwner(pOwner);
+		book.setBorrowtime(new Date());//add time in DB when we borrow book
 		bookRepositories.save(book);
 	}
 	@Transactional
 	public void freeBook(int bookid){
 		Book book = show(bookid);
 		book.setOwner(null);
+		book.setBorrowtime(null);
 		bookRepositories.save(book);
 	}
 	

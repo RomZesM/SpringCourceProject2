@@ -1,12 +1,13 @@
 package myCRUDappRMZ.model;
 
-import jdk.jfr.Timestamp;
-import org.springframework.data.annotation.Reference;
+
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import java.util.Date;
+
 @Entity
 @Table(name = "Book")
 public class Book {
@@ -30,7 +31,10 @@ public class Book {
 	
 	@Column(name = "personid", insertable = false, updatable = false)
 	private Integer personid;
-	
+
+	@Column(name = "borrowtime")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date borrowtime;
 	public Book(){
 	}
 	
@@ -87,6 +91,14 @@ public class Book {
 	
 	public void setPersonid(int personid) {
 		this.personid = personid;
+	}
+	
+	public Date getBorrowtime() {
+		return borrowtime;
+	}
+	
+	public void setBorrowtime(Date borrowtime) {
+		this.borrowtime = borrowtime;
 	}
 	
 	@Override
