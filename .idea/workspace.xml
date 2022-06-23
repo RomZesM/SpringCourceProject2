@@ -9,8 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9215dda-96b1-43f2-b52e-2cc49ab4c44d" name="Changes" comment="add: search(form and method)">
+    <list default="true" id="d9215dda-96b1-43f2-b52e-2cc49ab4c44d" name="Changes" comment="add: column for timestamp in table, add borrowtime and null it when book became free">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/controller/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/controller/PeopleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/controller/PeopleController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/model/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/servicies/PersonServicies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myCRUDappRMZ/servicies/PersonServicies.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties.origin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/id.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/id.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +203,8 @@
       <workItem from="1655103538556" duration="1822000" />
       <workItem from="1655376694208" duration="30871000" />
       <workItem from="1655896130494" duration="1188000" />
-      <workItem from="1655965902965" duration="700000" />
+      <workItem from="1655965902965" duration="1048000" />
+      <workItem from="1655967005914" duration="8574000" />
     </task>
     <task id="LOCAL-00001" summary="firstcommit, using old project as carcass">
       <created>1653569192743</created>
@@ -290,7 +297,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655966333784</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="add: column for timestamp in table, add borrowtime and null it when book became free">
+      <created>1655966892826</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1655966892827</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,6 +338,7 @@
     <MESSAGE value="make 2 @Entity, manyToOne - OneToMAny" />
     <MESSAGE value="adddin search(form and method)" />
     <MESSAGE value="add: search(form and method)" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: search(form and method)" />
+    <MESSAGE value="add: column for timestamp in table, add borrowtime and null it when book became free" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: column for timestamp in table, add borrowtime and null it when book became free" />
   </component>
 </project>

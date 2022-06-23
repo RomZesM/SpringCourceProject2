@@ -108,9 +108,9 @@ public class BookController {
 	@GetMapping("/search")
 	public String search(@RequestParam(name="search", required = false) String searchLine, Model model){
 		
-		if(searchLine != null)
+		if(searchLine != null && searchLine != "")
 		{
-			System.out.println("Search");
+			
 			model.addAttribute("searchResult", bookServicies.searchStartingWith(searchLine));
 			return "book/search";
 		}

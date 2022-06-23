@@ -16,7 +16,9 @@
 <span th:if="${#lists.size(personBooks) > 0}">
     <span th:text="'Books:'"></span>
     <div th:each="book : ${personBooks}" >
-        <span th:text="${book.title + ', ' + book.author + ', ' + book.year}">book</span>
+        <span th:text="${book.title + ', ' + book.author + ', ' + book.year}"
+        style = "color: black;" th:style = "${book.isExpired} ? 'color:red':'color:black'" >
+            book</span>
     </div>
 </span>
 <hr/>

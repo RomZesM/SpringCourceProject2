@@ -87,6 +87,7 @@ public class BookServicies {
 	
 	public List<Book> searchStartingWith(String startingWith){
 		System.out.println("In BookServicies -> search");
+		System.out.println("["+startingWith+"]");
 		List<Book> bookList = bookRepositories.findByTitleStartingWith(startingWith);
 		return(bookList);
 	}

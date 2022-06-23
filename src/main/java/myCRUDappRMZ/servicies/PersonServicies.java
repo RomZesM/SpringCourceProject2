@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -55,10 +56,16 @@ public class PersonServicies {
 	
 	public List<Book> personBooks(int personid) {
 		
-		System.out.println("inside PB");
 		List<Book> allBooks = bookRepositories.findAllByPersonid(personid);
-		ArrayList<Book> arBooks = (ArrayList<Book>) allBooks;
-		System.out.println(arBooks);
+		//check if book was expired
+		for (Book book: allBooks) {
+			
+			long expired = (new Date().getTime() - book.getBorrowtime().getTime()) / 1000 / 60 / 60 / 24;
+			if(expired > 10)
+				book.setExpired(true);
+			else
+				book.setExpired(false);
+		}
 		return allBooks;
 	}
 }
